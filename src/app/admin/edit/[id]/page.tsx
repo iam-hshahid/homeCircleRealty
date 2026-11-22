@@ -16,6 +16,7 @@ import {
   Save
 } from 'lucide-react';
 import { Property } from '@/types/property';
+import ImageUploader from '@/components/ImageUploader';
 
 export default function AdminEditPropertyPage({ params }: { params: { id: string } }) {
   const router = useRouter();
@@ -54,8 +55,8 @@ export default function AdminEditPropertyPage({ params }: { params: { id: string
   const [youtubeUrl, setYoutubeUrl] = useState('');
   const [youtubeId, setYoutubeId] = useState('');
 
-  // Media Images
-  const [imagesText, setImagesText] = useState('');
+  // Media Images (Direct Upload & URLs)
+  const [images, setImages] = useState<string[]>([]);
   const [description, setDescription] = useState('');
   const [highlightsText, setHighlightsText] = useState('');
   const [selectedAmenities, setSelectedAmenities] = useState<string[]>([]);
@@ -108,7 +109,7 @@ export default function AdminEditPropertyPage({ params }: { params: { id: string
           setReraNumber(p.reraNumber || '');
           setYoutubeId(p.youtubeId || '');
           setYoutubeUrl(p.youtubeUrl || '');
-          setImagesText((p.images || []).join('\n'));
+          setImages(p.images || []);
           setDescription(p.description || '');
           setHighlightsText((p.highlights || []).join('\n'));
           setSelectedAmenities(p.amenities || []);
@@ -131,7 +132,6 @@ export default function AdminEditPropertyPage({ params }: { params: { id: string
     e.preventDefault();
     setSubmitting(true);
     try {
-      const imagesArray = imagesText.split('\n').map(u => u.trim()).filter(Boolean);
       const highlightsArray = highlightsText.split('\n').map(h => h.trim()).filter(Boolean);
 
       const payload = {
@@ -158,7 +158,9 @@ export default function AdminEditPropertyPage({ params }: { params: { id: string
         reraNumber,
         youtubeUrl,
         youtubeId,
-        images: imagesArray,
+        images: images.length > 0 ? images : [
+          'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80'
+        ],
         description,
         highlights: highlightsArray,
         amenities: selectedAmenities,
@@ -327,6 +329,12 @@ export default function AdminEditPropertyPage({ params }: { params: { id: string
               </select>
             </div>
           </div>
+        </div>
+
+        {/* Property Photos & Direct Upload */}
+        <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm space-y-4">
+          <h3 className="font-bold text-gray-900 text-sm">Property Photos &amp; Image Upload</h3>
+          <ImageUploader images={images} onChange={setImages} />
         </div>
 
         <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm space-y-4">

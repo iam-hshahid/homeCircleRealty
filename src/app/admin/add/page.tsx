@@ -11,12 +11,13 @@ import {
   MapPin, 
   Home, 
   Youtube, 
-  Image as ImageIcon, 
+  ImageIcon, 
   Sparkles, 
   CheckCircle2, 
   Layers,
   HelpCircle
 } from 'lucide-react';
+import ImageUploader from '@/components/ImageUploader';
 
 export default function AdminAddPropertyPage() {
   const router = useRouter();
@@ -54,10 +55,12 @@ export default function AdminAddPropertyPage() {
   const [youtubeUrl, setYoutubeUrl] = useState('https://www.youtube.com/channel/UCVspkQelHEryqK4QKMHATug');
   const [youtubeId, setYoutubeId] = useState('aqz-KE-bpKQ');
 
-  // Media Images (newline separated URLs)
-  const [imagesText, setImagesText] = useState(
-    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80\nhttps://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1400&q=80\nhttps://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80'
-  );
+  // Media Images (Direct File Upload & URLs)
+  const [images, setImages] = useState<string[]>([
+    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80',
+    'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1400&q=80',
+    'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80'
+  ]);
 
   // Description & Highlights
   const [description, setDescription] = useState(
@@ -132,6 +135,11 @@ export default function AdminAddPropertyPage() {
     setReraNumber('PRM/KA/RERA/1250/303/PR/231120/005990');
     setYoutubeId('aqz-KE-bpKQ');
     setYoutubeUrl('https://www.youtube.com/channel/UCVspkQelHEryqK4QKMHATug');
+    setImages([
+      'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1400&q=80'
+    ]);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -139,11 +147,6 @@ export default function AdminAddPropertyPage() {
     setSubmitting(true);
 
     try {
-      const imagesArray = imagesText
-        .split('\n')
-        .map(url => url.trim())
-        .filter(url => url.length > 0);
-
       const highlightsArray = highlightsText
         .split('\n')
         .map(h => h.trim())
@@ -173,7 +176,9 @@ export default function AdminAddPropertyPage() {
         reraNumber,
         youtubeUrl,
         youtubeId,
-        images: imagesArray,
+        images: images.length > 0 ? images : [
+          'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80'
+        ],
         description,
         highlights: highlightsArray,
         amenities: selectedAmenities,
@@ -619,20 +624,11 @@ export default function AdminAddPropertyPage() {
               />
             </div>
 
-            <div className="sm:col-span-2">
-              <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1">
-                Image URLs (one URL per line)
+            <div className="sm:col-span-2 pt-3 border-t border-gray-100">
+              <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-2">
+                Property Photos &amp; Image Upload *
               </label>
-              <textarea
-                rows={4}
-                value={imagesText}
-                onChange={(e) => setImagesText(e.target.value)}
-                className="w-full p-3 rounded-lg border border-gray-300 text-xs font-mono focus:outline-none focus:border-gold-500"
-                placeholder="https://images.unsplash.com/photo-..."
-              />
-              <p className="text-[11px] text-gray-400 mt-1">
-                Paste high-resolution photo URLs (Unsplash or direct CDN links). The first image will be used as the primary card cover.
-              </p>
+              <ImageUploader images={images} onChange={setImages} />
             </div>
           </div>
         </div>
