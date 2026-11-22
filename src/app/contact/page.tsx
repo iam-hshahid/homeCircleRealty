@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Youtube, ShieldCheck, CheckCircle2, Send } from 'lucide-react';
+import { Phone, Mail, Clock, Youtube, Instagram, ShieldCheck, CheckCircle2, Send } from 'lucide-react';
 
 export default function ContactPage() {
   const [name, setName] = useState('');
@@ -60,19 +60,11 @@ export default function ContactPage() {
           <div className="bg-[#080E1A] text-white rounded-3xl p-8 sm:p-10 border border-white/10 shadow-xl space-y-8 flex flex-col justify-between">
             <div className="space-y-6">
               <div>
-                <span className="text-xs uppercase tracking-wider text-gold-400 font-semibold">Bengaluru Head Office</span>
+                <span className="text-xs uppercase tracking-wider text-gold-400 font-semibold">Bengaluru Luxury Advisory</span>
                 <h3 className="text-2xl font-serif font-bold text-white mt-1">Get in Touch</h3>
               </div>
 
               <div className="space-y-5 text-xs sm:text-sm text-gray-300">
-                <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-gold-400 mt-1 flex-shrink-0" />
-                  <div>
-                    <strong className="text-white block font-semibold mb-0.5">Advisory Lounge</strong>
-                    Level 4, Circle Tower, 100 Feet Road, Koramangala 7th Block &amp; Yelahanka Hub, Bengaluru 560034
-                  </div>
-                </div>
-
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-gold-400 flex-shrink-0" />
                   <div>
@@ -90,22 +82,39 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-center gap-3">
+                  <Instagram className="w-5 h-5 text-pink-400 flex-shrink-0" />
+                  <div>
+                    <strong className="text-white block font-semibold mb-0.5">Instagram</strong>
+                    <a href="https://www.instagram.com/homecirclerealty" target="_blank" rel="noopener noreferrer" className="hover:text-pink-300 transition">@homecirclerealty</a>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3">
                   <Clock className="w-5 h-5 text-gold-400 flex-shrink-0" />
                   <div>
                     <strong className="text-white block font-semibold mb-0.5">Operating Hours</strong>
-                    Monday – Sunday: 9:30 AM – 7:30 PM IST
+                    Monday – Sunday: 9:30 AM – 7:30 PM IST (Private Site Visits by Prior Appointment)
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* YouTube Channel Promo */}
-            <div className="pt-6 border-t border-white/10">
+            {/* Social Channel Links */}
+            <div className="pt-6 border-t border-white/10 space-y-2.5">
+              <a
+                href="https://www.instagram.com/homecirclerealty"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-purple-600/30 to-pink-600/30 hover:from-purple-600/40 hover:to-pink-600/40 border border-pink-500/30 text-white font-semibold text-xs flex items-center justify-center gap-2 transition"
+              >
+                <Instagram className="w-4 h-4 text-pink-400" />
+                <span>Follow on Instagram (@homecirclerealty)</span>
+              </a>
               <a
                 href="https://www.youtube.com/channel/UCVspkQelHEryqK4QKMHATug"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3 px-4 rounded-xl bg-red-600/30 hover:bg-red-600/40 border border-red-500/40 text-white font-semibold text-xs flex items-center justify-center gap-2 transition"
+                className="w-full py-2.5 px-4 rounded-xl bg-red-600/30 hover:bg-red-600/40 border border-red-500/40 text-white font-semibold text-xs flex items-center justify-center gap-2 transition"
               >
                 <Youtube className="w-4 h-4 fill-red-500 text-red-500" />
                 <span>Visit YouTube Video Channel</span>

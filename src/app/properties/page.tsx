@@ -36,6 +36,15 @@ function PropertiesContent() {
       .finally(() => setLoading(false));
   }, []);
 
+  // Synchronize state when URL query params change (e.g. clicking Navbar "Luxury Villas", "Penthouses", etc.)
+  useEffect(() => {
+    setSelectedType(searchParams.get('type') || 'All');
+    setSelectedLocation(searchParams.get('location') || 'All');
+    setSelectedBedrooms(searchParams.get('bedrooms') || 'All');
+    setSelectedStatus(searchParams.get('status') || 'All');
+    setKeyword(searchParams.get('q') || '');
+  }, [searchParams]);
+
   // Filter effect
   useEffect(() => {
     let result = [...properties];
@@ -94,6 +103,9 @@ function PropertiesContent() {
     setSelectedBedrooms('All');
     setSelectedStatus('All');
     setPriceSort('default');
+    if (typeof window !== 'undefined' && window.history.pushState) {
+      window.history.pushState({}, '', '/properties');
+    }
   };
 
   return (

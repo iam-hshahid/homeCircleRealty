@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Home, Phone, Mail, MapPin, Youtube, ShieldCheck, ExternalLink, ArrowRight } from 'lucide-react';
+import { Home, Phone, Mail, Youtube, Instagram, ShieldCheck, ExternalLink, ArrowRight } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -40,6 +40,26 @@ export default function Footer() {
                     className="inline-flex items-center gap-1 text-xs text-red-400 hover:text-red-300 font-semibold mt-2"
                   >
                     <span>Watch Channel Walkthroughs</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Instagram Promo */}
+            <div className="p-4 rounded-xl bg-gradient-to-r from-purple-950/30 to-pink-950/30 border border-pink-500/20 max-w-md">
+              <div className="flex items-start gap-3">
+                <Instagram className="w-6 h-6 text-pink-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="text-sm font-semibold text-white">Instagram @homecirclerealty</h4>
+                  <p className="text-xs text-gray-300 mt-0.5">Follow daily villa reels, behind-the-scenes tours, and new launch previews.</p>
+                  <a 
+                    href="https://www.instagram.com/homecirclerealty"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-xs text-pink-400 hover:text-pink-300 font-semibold mt-2"
+                  >
+                    <span>Follow on Instagram</span>
                     <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
@@ -120,16 +140,12 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Bengaluru Office & Contact */}
+          {/* Advisory & Contact */}
           <div>
             <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4 border-l-2 border-gold-400 pl-2">
-              Advisory Office
+              Advisory Contact
             </h4>
             <div className="space-y-3 text-sm">
-              <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-gold-400 mt-1 flex-shrink-0" />
-                <span>Level 4, Circle Tower, 100 Feet Rd, Koramangala &amp; Yelahanka Satellite Hub, Bengaluru, Karnataka 560034</span>
-              </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-gold-400 flex-shrink-0" />
                 <a href="tel:+917676290057" className="hover:text-gold-300 transition">+91-7676290057</a>
@@ -137,6 +153,10 @@ export default function Footer() {
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-gold-400 flex-shrink-0" />
                 <a href="mailto:info@homecirclerealty.in" className="hover:text-gold-300 transition">info@homecirclerealty.in</a>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <Instagram className="w-4 h-4 text-pink-400 flex-shrink-0" />
+                <a href="https://www.instagram.com/homecirclerealty" target="_blank" rel="noopener noreferrer" className="hover:text-pink-300 transition">@homecirclerealty</a>
               </div>
               <div className="pt-2">
                 <Link 
