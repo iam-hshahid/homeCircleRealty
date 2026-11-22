@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-gold: #C5A059;
+  --primary-gold-dark: #A8803D;
+  --dark-navy: #080E1A;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #1a202c;
+  background-color: #fafaf9;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Custom gold gradient */
+.gold-gradient {
+  background: linear-gradient(135deg, #DFC27D 0%, #C5A059 50%, #A8803D 100%);
+}
+
+.gold-text-gradient {
+  background: linear-gradient(135deg, #ECC880 0%, #C5A059 60%, #876228 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.navy-gradient {
+  background: linear-gradient(180deg, #0d1624 0%, #080E1A 100%);
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.glass-panel-dark {
+  background: rgba(12, 22, 38, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}

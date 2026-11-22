@@ -1,0 +1,30 @@
+[
+  {
+    "id": "inq-101",
+    "propertyId": "hc-villa-101",
+    "propertyTitle": "The Presidential Lakefront Villa",
+    "name": "Dr. Vikramaditya Rao",
+    "email": "dr.vikram.rao@gmail.com",
+    "phone": "+91 98450 12345",
+    "inquiryType": "Site Visit",
+    "preferredDate": "2025-03-01",
+    "budget": "₹10 Cr - ₹15 Cr",
+    "message": "Saw your walkthrough on Homecircle Realty YouTube channel. Looking for an independent villa close to Kempegowda International Airport. Would love to schedule a private walkthrough this coming Saturday.",
+    "status": "Visit Scheduled",
+    "createdAt": "2025-02-20T14:32:00Z"
+  },
+  {
+    "id": "inq-102",
+    "propertyId": "hc-penthouse-102",
+    "propertyTitle": "Skyline Horizon Sky Penthouse",
+    "name": "Ananya Mukherjee",
+    "email": "ananya.m@techcorp.io",
+    "phone": "+91 99801 88765",
+    "inquiryType": "Price Inquiry",
+    "preferredDate": "2025-03-03",
+    "budget": "₹6 Cr - ₹8 Cr",
+    "message": "Please send the detailed brochure, payment schedule, and floor plan for the Whitefield penthouse.",
+    "status": "Contacted",
+    "createdAt": "2025-02-21T09:15:00Z"
+  }
+]
