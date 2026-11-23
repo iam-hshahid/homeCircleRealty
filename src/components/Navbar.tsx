@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Home, Phone, Mail, Youtube, Instagram, Menu, X, ShieldCheck, Calculator, Compass, Sparkles } from 'lucide-react';
+import { Home, Phone, Mail, Youtube, Instagram, Menu, X, Calculator, Compass, Sparkles } from 'lucide-react';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -52,12 +52,6 @@ export default function Navbar() {
               <Phone className="w-3.5 h-3.5 text-gold-400" />
               <span className="font-medium">+91-7676290057</span>
             </a>
-            <Link 
-              href="/admin" 
-              className="px-2 py-0.5 rounded text-[11px] bg-white/10 hover:bg-gold-500 hover:text-navy-950 transition font-medium text-gray-200"
-            >
-              Admin Portal
-            </Link>
           </div>
         </div>
       </div>
@@ -212,14 +206,6 @@ export default function Navbar() {
           >
             Contact &amp; Site Visit
           </Link>
-          <Link 
-            href="/admin" 
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-base font-medium text-gold-400 hover:underline"
-          >
-            Admin Management Portal →
-          </Link>
-
           <div className="pt-4 flex flex-col gap-2">
             <a
               href="https://wa.me/917676290057"

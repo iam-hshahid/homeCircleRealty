@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Home, Phone, Mail, Youtube, Instagram, ShieldCheck, ExternalLink, ArrowRight } from 'lucide-react';
+import { Home, Phone, Mail, Youtube, Instagram, ExternalLink, ArrowRight } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -158,15 +158,6 @@ export default function Footer() {
                 <Instagram className="w-4 h-4 text-pink-400 flex-shrink-0" />
                 <a href="https://www.instagram.com/homecirclerealty" target="_blank" rel="noopener noreferrer" className="hover:text-pink-300 transition">@homecirclerealty</a>
               </div>
-              <div className="pt-2">
-                <Link 
-                  href="/admin" 
-                  className="inline-flex items-center gap-1.5 text-xs text-gold-400 hover:text-gold-300 font-semibold bg-white/5 px-3 py-1.5 rounded-lg border border-gold-400/30"
-                >
-                  <ShieldCheck className="w-3.5 h-3.5" />
-                  <span>Admin Dashboard</span>
-                </Link>
-              </div>
             </div>
           </div>
 
@@ -181,7 +172,6 @@ export default function Footer() {
             <Link href="/about" className="hover:text-gray-400 transition">Disclaimer</Link>
             <Link href="/about" className="hover:text-gray-400 transition">Privacy Policy</Link>
             <Link href="/calculator" className="hover:text-gray-400 transition">EMI Calculator</Link>
-            <Link href="/admin" className="hover:text-gold-400 transition">Admin Portal</Link>
           </div>
         </div>
 

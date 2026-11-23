@@ -730,11 +730,11 @@ export default function AdminAddPropertyPage() {
 
             <button
               type="submit"
-              disabled={submitting}
+              disabled={submitting || successMessage}
               className="px-8 py-3.5 rounded-xl gold-gradient text-navy-950 font-bold text-xs uppercase tracking-wider hover:brightness-110 transition shadow-lg shadow-gold-500/20 disabled:opacity-50 flex items-center gap-2"
             >
               <PlusCircle className="w-4 h-4" />
-              <span>{submitting ? 'Saving Property...' : 'Save &amp; Publish Property'}</span>
+              <span>{submitting ? 'Saving Property...' : 'Save & Publish Property'}</span>
             </button>
           </div>
         </div>

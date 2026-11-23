@@ -59,7 +59,9 @@ export function addProperty(propertyData: Omit<Property, 'id' | 'createdAt'> & {
   };
 
   properties.unshift(newProperty);
-  saveProperties(properties);
+  if (!saveProperties(properties)) {
+    throw new Error('Failed to save property data');
+  }
   return newProperty;
 }
 
